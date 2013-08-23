@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>点击弹出层</title>
+<style type="text/css">
+/****订单弹出框*****/
+.orderMsg{ position:absolute; background:#fff; border:1px solid #939395; width:500px; height:340px; overflow:hidden; z-index:99999; font-size:14px; color:#000; left:0; top:0; display:none;}
+.orderMsg dl{ overflow:hidden; padding:20px; margin:0;}
+.orderMsg dl dt{ line-height:30px;}
+.orderMsg dl dd{ line-height:25px; height:25px; padding-left:10px; margin:0;}
+.orderMsg dl dd label{ padding-left:5px;}
+.orderMsg dl dd.cBtn{ width:102px; height:28px; background:url(../images/member/chooseBtn.gif) no-repeat; margin-top:10px; padding:0;}
+.orderMsg dl dd.cBtn a{ display:block;  text-align:center;}
+.orderMsg dl dd.cBtn a:link,.orderMsg dl dd.cBtn a:visited{ color:#000;}
+.orderMsg dl dd.lBtn{ float:left; display:inline; margin-left:100px;}
+.orderMsg dl dd.rBtn{ float:left; display:inline; margin-left:10px;}
+</style>
+</head>
+
+<body>
+<script type="text/javascript">
+    function killOrder(btn) { //btn为弹出窗口或者关闭窗口,为空则为弹出窗口，有值为取消关闭窗口；
+        var isIe = (document.all) ? true : false;//判断IE浏览器
+        var orderMsg = document.getElementById("orderMsg");
+        var w = document.body.clientWidth;
+        var h = document.body.clientHeight;//带!DOCTYPE时高度是整个网页的高度
+        var h1 = document.documentElement.clientHeight;//带!DOCTYPE的时候用的可视高度
+        var styleStr = "top:0px;left:0px;position:absolute;z-index:999;background:#666;width:" + w + "px;height:" + h + "px;";
+        styleStr += (isIe) ? "filter:alpha(opacity=80);" : "opacity:0.8;";//背景遮罩层CSS
+        var styleStr1 = "display:block;left:" + (w / 2 - 250) + "px;top:" + (h1 / 2 - 170) + "px;";    //弹出层CSS
+        var shadowDiv = document.createElement("div"); //背景遮罩层DIV
+        var iframea = document.createElement("iframe");//防止SELECT遮挡弹出层
+        if (!btn) {
+            //alert(shadowDiv);
+            shadowDiv.style.cssText = styleStr; //添加样式
+            shadowDiv.id = "shadowDiv";
+            document.body.insertBefore(shadowDiv, document.body.lastChild); //加入文档    
+            orderMsg.style.cssText = styleStr1;
+            iframea.style.cssText = "position:absolute;z-index:-1;width:500px;height:340px;top:0;left:0;scrolling:no;border:0;";
+            iframea.frameborder = 0;
+            iframea.src = "about:blank";
+            orderMsg.insertBefore(iframea, orderMsg.firstChild);
+        } else {
+            if (document.getElementById("shadowDiv")) {
+                //alert(!shadowDiv);
+                document.body.removeChild(document.getElementById("shadowDiv"));
+                orderMsg.style.cssText = "display:none;";
+            }
+        }
+    }
+</script>
+<p><a href="#" onclick="killOrder()">点击弹出层</a></p>
+<p><br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+</p>
+<div id="orderMsg" class="orderMsg">
+    <dl>
+        <dt>请您告知我们取消订单的原因，以便我们改进。非常感谢!</dt>
+        <dd><input type="radio" name="reason" id="reason1"><label for="reason1">改变主意,现在不想买了</label></dd>
+        <dd><input type="radio" name="reason" id="reason2"><label for="reason2">刚才信息填错了,要重新下单</label></dd>
+        <dd><input type="radio" name="reason" id="reason3"><label for="reason3">先取消,再更换或添加新商品</label></dd>
+        <dd><input type="radio" name="reason" id="reason4"><label for="reason4">网银,信用卡等支付有问题</label></dd>
+        <dd><input type="radio" name="reason"id="reason5"><label for="reason5">等待时间过长,不耐烦了</label></dd>
+        <dd><input type="radio" name="reason" id="reason6"><label for="reason6">商品价格较贵</label></dd>
+        <dd><input type="radio" name="reason" id="reason7"><label for="reason7">出现商品缺货情况</label></dd>
+        <dd><input type="radio" name="reason" id="reason8"><label for="reason8">其它的原因</label></dd>
+        <dd><input type="radio" disabled="disabled"><label>72小时到期自动取消(不可选)</label></dd>
+        <dd class="cBtn lBtn"><a href="#">选好了</a></dd><dd class="cBtn rBtn"><a href="#" onclick="killOrder(1)">点击取消</a></dd>
+    </dl>
+</div>
+
+</body>
+</html>

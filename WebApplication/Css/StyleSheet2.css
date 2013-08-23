@@ -1,0 +1,77 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    color: #424041;
+    font-family: Tahoma,Helvetica,Arial,sans-serif;
+    font-size: 12px;
+    cursor: default;
+}
+
+#wrap {
+    margin: 0 auto;
+    width: 980px;
+    background: #FFF;
+}
+
+#main {
+    float: right;
+    width: 785px;
+}
+
+.tab {
+    margin-top: 10px;
+}
+
+.tabContainer {
+    width: 100%;
+    background: url(../Img/tab.gif) repeat-x bottom;
+    overflow: hidden;
+}
+
+    .tabContainer li {
+        float: left;
+        margin-right: 2px;
+        background: url(../Img/tabOff_right.gif) no-repeat right top;
+    }
+
+        .tabContainer li a {
+            display: block!important;
+            display: inline-block;
+            padding: 0 15px;
+            height: 27px;
+            line-height: 27px;
+            background: url(../Img/tabOff_left.gif) no-repeat left top;
+        }
+
+        .tabContainer li.currentBtn {
+            background: url(../Img/tabOn_right.gif) no-repeat right top;
+        }
+
+        .tabContainer li.currentBtn {
+            background: url(../Img/tabOn_right.gif) no-repeat right top;
+        }
+
+#body .tabContainer li a {
+    color: #696969;
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+#body .tabContainer li.currentBtn a {
+    height: 28px;
+    background: url(../Img/tabOn_left.gif) no-repeat left top;
+    color: #434142;
+}
+
+#body .tabContainer li a:hover {
+    text-decoration: none;
+    color: #f60;
+}
+
+#body .tabContainer li.currentBtn a:hover {
+    color: #434142;
+}

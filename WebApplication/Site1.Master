@@ -1,0 +1,35 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="Css/StyleSheet2.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div id="wrap">
+                <div id="body">
+                    <div id="main" style="overflow: hidden;">
+                        <div id="tabCot_product" class="tab">
+                            <div class="tabContainer">
+                                <ul class="tabHead" id="tabCot_product-li-currentBtn-">
+                                    <li class="currentBtn"><a href="WebForm1.aspx" title="Tab1" rel="1">Tab1</a></li>
+                                    <li><a href="#" title="Tab2" rel="2">Tab2</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style type="text/css">
+        .orderMsg {
+            position: absolute;
+            background: #fff;
+            border: 1px solid #939395;
+            width: 500px;
+            height: 340px;
+            overflow: hidden;
+            z-index: 99999;
+            font-size: 14px;
+            color: #000;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript">
+        function killOrder(btn) { //btn为弹出窗口或者关闭窗口,为空则为弹出窗口，有值为取消关闭窗口；
+            var isIe = (document.all) ? true : false;//判断IE浏览器
+            var orderMsg = document.getElementById("msg");
+            var w = document.body.clientWidth;
+            var h = document.body.clientHeight;//带!DOCTYPE时高度是整个网页的高度
+            var h1 = document.documentElement.clientHeight;//带!DOCTYPE的时候用的可视高度
+            var styleStr = "top:0px;left:0px;position:absolute;z-index:999;background:#666;width:" + w + "px;height:" + h + "px;";
+            styleStr += (isIe) ? "filter:alpha(opacity=80);" : "opacity:0.8;";//背景遮罩层CSS
+            var styleStr1 = "display:block;left:" + (w / 2 - 250) + "px;top:" + (h1 / 2 - 170) + "px;";    //弹出层CSS
+            var shadowDiv = document.createElement("div"); //背景遮罩层DIV
+            var iframea = document.createElement("iframe");//防止SELECT遮挡弹出层
+            if (!btn) {
+                //alert(shadowDiv);
+                shadowDiv.style.cssText = styleStr; //添加样式
+                shadowDiv.id = "shadowDiv";
+                document.body.insertBefore(shadowDiv, document.body.lastChild); //加入文档    
+                orderMsg.style.cssText = styleStr1;
+                iframea.style.cssText = "position:absolute;z-index:-1;width:500px;height:340px;top:0;left:0;scrolling:no;border:0;";
+                iframea.frameborder = 0;
+                iframea.src = "about:blank";
+                orderMsg.insertBefore(iframea, orderMsg.firstChild);
+            } else {
+                if (document.getElementById("shadowDiv")) {
+                    //alert(!shadowDiv);
+                    document.body.removeChild(document.getElementById("shadowDiv"));
+                    orderMsg.style.cssText = "display:none;";
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div id="mask" style="top: 0px; left: 0px; background: #000; filter: alpha(opacity=60); opacity: 0.6; position: absolute; z-index: 99;"></div>
+    <input type="button" value="showdiv" onclick="killOrder();" />
+
+    <div id="msg" class="orderMsg">
+        <span>警告</span>
+        <input type="button" value="ok" />
+        <input type="button" value="cancel" onclick="killOrder(1);" />
+    </div>
+    <p>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+    </p>
+</body>
+</html>
